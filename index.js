@@ -17,26 +17,29 @@ let winner = false;
 
 $('#alertStart').hide();
 $('#alertWinner').hide();
-$('alertDraw').hide()
+$('#alertDraw').hide();
+
+//current player
 
 let currentPlayer='';
 
 const winningOutcomes = [
     [box0, box1, box2], [box3, box4, box5], [box6, box7, box8],
     [box0, box3, box6], [box1, box4, box7], [box2, box5, box8], [box0, box4, box8], [box2, box4, box6]
-]
+];
 
 const endGame = () => {
     console.log("Game Over");
     $('.box').css("pointer-events", "none");
     $('#p1').removeClass("bg-light border border--info");
     $('#p2').removeClass("bg-light border border--info");
-}
+};
 
 const checkWinner = (currentPlayer, a, b, c) => {
     if(a.text() === currentPlayer && b.text() === currentPlayer && c.text() === currentPlayer){
         winner = true;
-        console.log('Winner is ${currentPlayer}!')
+        console.log(`Winner is ${currentPlayer}`);
+
         a.removeClass('text-info bg-dark');
         b.removeClass('text-info bg-dark');
         c.removeClass('text-info bg-dark');
@@ -51,15 +54,15 @@ const checkWinner = (currentPlayer, a, b, c) => {
             currentPlayer = "player 2";
         }
 
-        $('#alert').text('Game over ${currentPlayer}!')
+        $('#alertWinner').text(`Game over ${currentPlayer}!`)
         $('#alertWinner').show();
 
         endGame();
     }
-}
+};
 
 const checkOutcomes = () => {
-    checkWinner(currentPlayer, ...winningOutcomes[0]);
+    checkWinner(currentPlayer, ... winningOutcomes[0]);
     checkWinner(currentPlayer, ...winningOutcomes[1]);
     checkWinner(currentPlayer, ...winningOutcomes[2]);
     checkWinner(currentPlayer, ...winningOutcomes[3]);
@@ -79,15 +82,16 @@ const checkOutcomes = () => {
 const startGame = () => {
 
     console.log("start game");
-    console(turn++);
+    console.log(turn++);
     currentPlayer = player1;
     console.log(currentPlayer);
 
     $('#p1').addClass("bg-light border border-info");
-
-    $('#alertStart').show()
+// start alert
+    $('#alertStart').show();
     $('.box').on('click', function(){
         $('#alertStart').hide();
+
         $(this).text(currentPlayer);
 
         if(turn > 4){
@@ -95,7 +99,7 @@ const startGame = () => {
             checkOutcomes();
         }
 
-        if(winner === false){
+    if(winner === false){
 
         
 
@@ -112,9 +116,9 @@ const startGame = () => {
         }
     }
     }) 
-}
+};
 
 
 document.getElementById('startBtn').addEventListener('click', ()=> startGame());
 
-document.getElementById('resetBtn').addEventListener('click', ()=> document.location.reload(true))
+document.getElementById('resetBtn').addEventListener('click', ()=> document.location.reload(true));

@@ -9,6 +9,7 @@
 </head>
 <body class="bg-secondary">
     <div id="header" class="container text-center p-3">
+
         <div class="row">
             <div class="col pt-2"></div>
             <div class="col pt-2"></div>
@@ -24,21 +25,13 @@
             <div class="col fs-2"></div>
             <div id="p2" class="col fs-2">Player 2 - O</div>
         </div>
-    <div id="alert---container"></div>
-        </div>
-        <div id="alertStart" class="alert alert-info text-center m-0 ms-5 me-5 fs-3" role="alert">
-            player 1 start!
-        </div>
 
-        <div id="alertWinner" class="alert alert-info text-center m-0 ms-5 me-5 fs-3" role="alert">
-            
-        </div>
-
-        <div id="alertDraw" class="alert alert-info text-center m-0 ms-5 me-5 fs-3" role="alert">
-            Game over. It is a Draw!
-        </div>
-    </div>
-
+<!-- alert pop up-->
+ <div id="alertStart" class="alert alert-info text-center m-0 ms-5 me-5 fs-3" role="alert">Player 1 start</div>
+ <div id="alertWinner" class="alert alert-info text-center m-0 ms-5 me-5 fs-3" role="alert"></div>
+ <div id="alertDraw" class="alert alert-info text-center m-0 ms-5 me-5 fs-3" role="alert">Game over its a draw</div>
+    
+<!--grid-->
     <div class="container m-auto p-3 g-5">
         <div id="grid" class="container-outline-light m-auto p-0 bg-dark text-info text-center align-middle border border-info">
             <div class="row fs-1 g-0">
@@ -59,6 +52,8 @@
         </div>
     </div>
 
+    <!--buttons-->
+
     <div class="d-grid col-3 gap-3 mx-auto pt-4">
     <button id="startBtn" type="button" class="btn btn-outline-info btn-lg">START</button>
     <button id="resetBtn" type="button" class="btn btn-outline-info btn-lg">RESET</button>
@@ -67,7 +62,7 @@
 
 
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    <script src="script.js"></script>
     <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
